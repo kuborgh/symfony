@@ -76,7 +76,7 @@ class FragmentListener implements EventSubscriberInterface
     {
         // is the Request safe?
         if (!$request->isMethodSafe()) {
-            throw new AccessDeniedHttpException();
+            throw new AccessDeniedHttpException('Fragment method not safe');
         }
 
         // is the Request signed?
@@ -85,7 +85,7 @@ class FragmentListener implements EventSubscriberInterface
             return;
         }
 
-        throw new AccessDeniedHttpException();
+        throw new AccessDeniedHttpException('Fragment not signed');
     }
 
     /**
